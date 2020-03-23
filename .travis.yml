@@ -15,7 +15,7 @@ after_success:
   - docker build -t irsan238/multi-nginx ./nginx
 
   #Login to docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Take image and push to docker hub
   - docker push irsan238/multi-client
   - docker push irsan238/multi-server
