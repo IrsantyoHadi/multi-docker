@@ -9,15 +9,15 @@ script:
   - docker run -e CI=true irsan238/react-test npm test
 
 after_success:
-  - docker build -t irsan238/multi-client ./client
-  - docker build -t irsan238/multi-server ./server
-  - docker build -t irsan238/multi-worker ./worker
-  - docker build -t irsan238/multi-nginx ./nginx
+  - docker build -t multi-client ./client
+  - docker build -t multi-server ./server
+  - docker build -t multi-worker ./worker
+  - docker build -t multi-nginx ./nginx
 
   #Login to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
   #Take image and push to docker hub
-  - docker push irsan238/multi-client
-  - docker push irsan238/multi-server
-  - docker push irsan238/multi-worker
-  - docker push irsan238/multi-nginx
+  - docker push multi-client
+  - docker push multi-server
+  - docker push multi-worker
+  - docker push multi-nginx
