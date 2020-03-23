@@ -44,8 +44,10 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
   nginx:
-    image: nginx:latest
     restart: always
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./nginx
     ports:
       - "8080:80"
     volumes:
